@@ -1,8 +1,8 @@
-import { PgEdgeLogo } from "./PgEdgeLogo";
 import { SearchBox } from "./SearchBox";
 import { ThemeToggle } from "./ThemeToggle";
 import { GitHubLink } from "./GitHubLink";
 import { AskAIButton } from "./AskAIButton";
+import logoLight from "@/assets/logo-light.png";
 
 export function Header() {
   return (
@@ -14,7 +14,7 @@ export function Header() {
             href="https://pgedge.com"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <PgEdgeLogo className="h-8 w-auto" />
+            <img src={logoLight} alt="pgEdge" className="h-7 w-auto" />
           </a>
           <div className="hidden sm:block h-6 w-px bg-border" />
           <a

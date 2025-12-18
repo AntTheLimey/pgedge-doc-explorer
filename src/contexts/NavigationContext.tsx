@@ -11,6 +11,8 @@ interface NavigationContextType {
   collapseAll: () => void;
   aiPanelOpen: boolean;
   setAiPanelOpen: (open: boolean) => void;
+  selectedVersion: string;
+  setSelectedVersion: (version: string) => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
@@ -20,6 +22,7 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
   const [activePath, setActivePath] = useState("/get-started");
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [aiPanelOpen, setAiPanelOpen] = useState(false);
+  const [selectedVersion, setSelectedVersion] = useState("v0.6.0");
 
   const toggleExpanded = (href: string) => {
     setExpandedItems((prev) => {
@@ -47,6 +50,8 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
         collapseAll,
         aiPanelOpen,
         setAiPanelOpen,
+        selectedVersion,
+        setSelectedVersion,
       }}
     >
       {children}

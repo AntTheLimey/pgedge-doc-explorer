@@ -2,9 +2,13 @@ import { SearchBox } from "./SearchBox";
 import { ThemeToggle } from "./ThemeToggle";
 import { GitHubLink } from "./GitHubLink";
 import { AskAIButton } from "./AskAIButton";
+import { useTheme } from "@/contexts/ThemeContext";
 import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.png";
 
 export function Header() {
+  const { theme } = useTheme();
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-header-border bg-header backdrop-blur-sm">
       <div className="flex h-14 items-center justify-between px-4 lg:px-6">
@@ -14,7 +18,11 @@ export function Header() {
             href="https://pgedge.com"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <img src={logoLight} alt="pgEdge" className="h-7 w-auto" />
+            <img 
+              src={theme === "dark" ? logoDark : logoLight} 
+              alt="pgEdge" 
+              className="h-7 w-auto" 
+            />
           </a>
           <div className="hidden sm:block h-6 w-px bg-border" />
           <a

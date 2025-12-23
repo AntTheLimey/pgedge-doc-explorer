@@ -656,27 +656,6 @@ export const topLevelSections: TopLevelSection[] = [
       },
     ],
   },
-  {
-    id: "additional-tools",
-    title: "Additional Tools",
-    href: "/additional-tools",
-    items: [
-      { title: "Overview", href: "/additional-tools" },
-      {
-        title: "pgEdge Docloader",
-        href: "/additional-tools/docloader",
-        children: [
-          { title: "pgEdge Document Loader", href: "/additional-tools/docloader/overview" },
-          { title: "Installing pgEdge Document Loader", href: "/additional-tools/docloader/installing" },
-          { title: "Using pgEdge Document Loader", href: "/additional-tools/docloader/using" },
-          { title: "Supported Formats", href: "/additional-tools/docloader/formats" },
-          { title: "Troubleshooting", href: "/additional-tools/docloader/troubleshooting" },
-          { title: "Release Notes", href: "/additional-tools/docloader/release-notes" },
-          { title: "Licence", href: "/additional-tools/docloader/licence" },
-        ],
-      },
-    ],
-  },
 ];
 
 export const sampleSearchResults = [

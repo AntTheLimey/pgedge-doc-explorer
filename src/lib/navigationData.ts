@@ -31,40 +31,6 @@ export const topLevelSections: TopLevelSection[] = [
     items: [
       { title: "Overview", href: "/vm-bare-metal" },
       {
-        title: "Package Repository (yum/apt)",
-        href: "/vm-bare-metal/package-repository",
-        children: [
-          {
-            title: "Enterprise Linux 9 & 10",
-            href: "/vm-bare-metal/package-repository/enterprise-linux",
-            children: [
-              { title: "Enterprise Linux Version Support", href: "/vm-bare-metal/package-repository/enterprise-linux/version-support" },
-              { title: "Getting Started - Configuring the Repository", href: "/vm-bare-metal/package-repository/enterprise-linux/getting-started" },
-              { title: "Installing Postgres", href: "/vm-bare-metal/package-repository/enterprise-linux/installing-postgres" },
-              { title: "Installing Supporting Components", href: "/vm-bare-metal/package-repository/enterprise-linux/supporting-components" },
-              { title: "Migrating to pgEdge Enterprise Postgres", href: "/vm-bare-metal/package-repository/enterprise-linux/migrating" },
-              { title: "Upgrading Spock", href: "/vm-bare-metal/package-repository/enterprise-linux/upgrading-spock" },
-              { title: "Creating an Offline Repo", href: "/vm-bare-metal/package-repository/enterprise-linux/offline-repo" },
-            ],
-          },
-          {
-            title: "Debian & Ubuntu",
-            href: "/vm-bare-metal/package-repository/debian-ubuntu",
-            children: [
-              { title: "Debian & Ubuntu Version Support", href: "/vm-bare-metal/package-repository/debian-ubuntu/version-support" },
-              { title: "Getting Started - Configuring the Repository", href: "/vm-bare-metal/package-repository/debian-ubuntu/getting-started" },
-              { title: "Installing Postgres", href: "/vm-bare-metal/package-repository/debian-ubuntu/installing-postgres" },
-              { title: "Installing Supporting Components", href: "/vm-bare-metal/package-repository/debian-ubuntu/supporting-components" },
-              { title: "Migrating to pgEdge Enterprise Postgres", href: "/vm-bare-metal/package-repository/debian-ubuntu/migrating" },
-              { title: "Upgrading Spock", href: "/vm-bare-metal/package-repository/debian-ubuntu/upgrading-spock" },
-              { title: "Creating an Offline Repo", href: "/vm-bare-metal/package-repository/debian-ubuntu/offline-repo" },
-            ],
-          },
-          { title: "Troubleshooting", href: "/vm-bare-metal/package-repository/troubleshooting" },
-          { title: "Enterprise Postgres Release Notes", href: "/vm-bare-metal/package-repository/release-notes" },
-        ],
-      },
-      {
         title: "Control Plane",
         href: "/vm-bare-metal/control-plane",
         children: [
@@ -133,6 +99,74 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       { title: "Ansible", href: "/vm-bare-metal/ansible" },
+      {
+        title: "Package Repository (yum/apt)",
+        href: "/vm-bare-metal/package-repository",
+        children: [
+          {
+            title: "Enterprise Linux 9 & 10",
+            href: "/vm-bare-metal/package-repository/enterprise-linux",
+            children: [
+              { title: "Enterprise Linux Version Support", href: "/vm-bare-metal/package-repository/enterprise-linux/version-support" },
+              { title: "Getting Started - Configuring the Repository", href: "/vm-bare-metal/package-repository/enterprise-linux/getting-started" },
+              { title: "Installing Postgres", href: "/vm-bare-metal/package-repository/enterprise-linux/installing-postgres" },
+              { title: "Installing Supporting Components", href: "/vm-bare-metal/package-repository/enterprise-linux/supporting-components" },
+              { title: "Migrating to pgEdge Enterprise Postgres", href: "/vm-bare-metal/package-repository/enterprise-linux/migrating" },
+              { title: "Upgrading Spock", href: "/vm-bare-metal/package-repository/enterprise-linux/upgrading-spock" },
+              { title: "Creating an Offline Repo", href: "/vm-bare-metal/package-repository/enterprise-linux/offline-repo" },
+            ],
+          },
+          {
+            title: "Debian & Ubuntu",
+            href: "/vm-bare-metal/package-repository/debian-ubuntu",
+            children: [
+              { title: "Debian & Ubuntu Version Support", href: "/vm-bare-metal/package-repository/debian-ubuntu/version-support" },
+              { title: "Getting Started - Configuring the Repository", href: "/vm-bare-metal/package-repository/debian-ubuntu/getting-started" },
+              { title: "Installing Postgres", href: "/vm-bare-metal/package-repository/debian-ubuntu/installing-postgres" },
+              { title: "Installing Supporting Components", href: "/vm-bare-metal/package-repository/debian-ubuntu/supporting-components" },
+              { title: "Migrating to pgEdge Enterprise Postgres", href: "/vm-bare-metal/package-repository/debian-ubuntu/migrating" },
+              { title: "Upgrading Spock", href: "/vm-bare-metal/package-repository/debian-ubuntu/upgrading-spock" },
+              { title: "Creating an Offline Repo", href: "/vm-bare-metal/package-repository/debian-ubuntu/offline-repo" },
+            ],
+          },
+          { title: "Troubleshooting", href: "/vm-bare-metal/package-repository/troubleshooting" },
+          { title: "Enterprise Postgres Release Notes", href: "/vm-bare-metal/package-repository/release-notes" },
+        ],
+      },
+      {
+        title: "ACE (Active Consistency Engine)",
+        href: "/vm-bare-metal/ace",
+        children: [
+          { title: "ACE Overview", href: "/vm-bare-metal/ace/overview" },
+          { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
+          { title: "Best Practices for Using ACE", href: "/vm-bare-metal/ace/best-practices" },
+          { title: "ACE Configuration", href: "/vm-bare-metal/ace/configuration" },
+          { title: "Running ACE with Docker", href: "/vm-bare-metal/ace/docker" },
+          {
+            title: "ACE Commands",
+            href: "/vm-bare-metal/ace/commands",
+            children: [
+              { title: "Command reference", href: "/vm-bare-metal/ace/commands/reference" },
+              { title: "Diff Commands", href: "/vm-bare-metal/ace/commands/diff" },
+              { title: "Repair Commands", href: "/vm-bare-metal/ace/commands/repair" },
+              { title: "Merkle Tree Commands", href: "/vm-bare-metal/ace/commands/merkle-tree" },
+            ],
+          },
+          { title: "Scheduling ACE Runs", href: "/vm-bare-metal/ace/scheduling" },
+          { title: "The ACE API", href: "/vm-bare-metal/ace/api" },
+          { title: "Improving ACE Performance", href: "/vm-bare-metal/ace/performance" },
+          { title: "Using ACE for Failure Recovery", href: "/vm-bare-metal/ace/failure-recovery" },
+          {
+            title: "Architecture and Design",
+            href: "/vm-bare-metal/ace/architecture",
+            children: [
+              { title: "ACE table-diff Architecture", href: "/vm-bare-metal/ace/architecture/table-diff" },
+              { title: "Merkle Tree Architecture", href: "/vm-bare-metal/ace/architecture/merkle-tree" },
+            ],
+          },
+          { title: "Release Notes", href: "/vm-bare-metal/ace/release-notes" },
+        ],
+      },
     ],
   },
   {
@@ -476,6 +510,42 @@ export const topLevelSections: TopLevelSection[] = [
           { title: "Changelog", href: "/ai-toolkit/vectorizer/changelog" },
         ],
       },
+      {
+        title: "pgEdge Anonymizer",
+        href: "/ai-toolkit/anonymizer",
+        children: [
+          {
+            title: "pgEdge Anonymizer",
+            href: "/ai-toolkit/anonymizer/overview",
+            children: [
+              { title: "Introduction", href: "/ai-toolkit/anonymizer/overview/introduction" },
+              { title: "Best Practices", href: "/ai-toolkit/anonymizer/overview/best-practices" },
+            ],
+          },
+          {
+            title: "Installing pgEdge Anonymizer",
+            href: "/ai-toolkit/anonymizer/installing",
+            children: [
+              { title: "Installing Anonymizer", href: "/ai-toolkit/anonymizer/installing/guide" },
+              { title: "Creating a Configuration File", href: "/ai-toolkit/anonymizer/installing/config" },
+              { title: "Quickstart", href: "/ai-toolkit/anonymizer/installing/quickstart" },
+            ],
+          },
+          { title: "Using pgEdge Anonymizer", href: "/ai-toolkit/anonymizer/using" },
+          {
+            title: "Creating and Using Patterns",
+            href: "/ai-toolkit/anonymizer/patterns",
+            children: [
+              { title: "Creating a User-Defined Pattern", href: "/ai-toolkit/anonymizer/patterns/user-defined" },
+              { title: "Using Pre-defined Patterns", href: "/ai-toolkit/anonymizer/patterns/pre-defined" },
+              { title: "Example - Configuration File", href: "/ai-toolkit/anonymizer/patterns/example" },
+            ],
+          },
+          { title: "Troubleshooting", href: "/ai-toolkit/anonymizer/troubleshooting" },
+          { title: "Release Notes", href: "/ai-toolkit/anonymizer/release-notes" },
+          { title: "Licence", href: "/ai-toolkit/anonymizer/licence" },
+        ],
+      },
     ],
   },
   {
@@ -593,76 +663,6 @@ export const topLevelSections: TopLevelSection[] = [
     items: [
       { title: "Overview", href: "/additional-tools" },
       {
-        title: "ACE (Active Consistency Engine)",
-        href: "/additional-tools/ace",
-        children: [
-          { title: "ACE Overview", href: "/additional-tools/ace/overview" },
-          { title: "Installing ACE", href: "/additional-tools/ace/installing" },
-          { title: "Best Practices for Using ACE", href: "/additional-tools/ace/best-practices" },
-          { title: "ACE Configuration", href: "/additional-tools/ace/configuration" },
-          { title: "Running ACE with Docker", href: "/additional-tools/ace/docker" },
-          {
-            title: "ACE Commands",
-            href: "/additional-tools/ace/commands",
-            children: [
-              { title: "Command reference", href: "/additional-tools/ace/commands/reference" },
-              { title: "Diff Commands", href: "/additional-tools/ace/commands/diff" },
-              { title: "Repair Commands", href: "/additional-tools/ace/commands/repair" },
-              { title: "Merkle Tree Commands", href: "/additional-tools/ace/commands/merkle-tree" },
-            ],
-          },
-          { title: "Scheduling ACE Runs", href: "/additional-tools/ace/scheduling" },
-          { title: "The ACE API", href: "/additional-tools/ace/api" },
-          { title: "Improving ACE Performance", href: "/additional-tools/ace/performance" },
-          { title: "Using ACE for Failure Recovery", href: "/additional-tools/ace/failure-recovery" },
-          {
-            title: "Architecture and Design",
-            href: "/additional-tools/ace/architecture",
-            children: [
-              { title: "ACE table-diff Architecture", href: "/additional-tools/ace/architecture/table-diff" },
-              { title: "Merkle Tree Architecture", href: "/additional-tools/ace/architecture/merkle-tree" },
-            ],
-          },
-          { title: "Release Notes", href: "/additional-tools/ace/release-notes" },
-        ],
-      },
-      {
-        title: "pgEdge Anonymizer",
-        href: "/additional-tools/anonymizer",
-        children: [
-          {
-            title: "pgEdge Anonymizer",
-            href: "/additional-tools/anonymizer/overview",
-            children: [
-              { title: "Introduction", href: "/additional-tools/anonymizer/overview/introduction" },
-              { title: "Best Practices", href: "/additional-tools/anonymizer/overview/best-practices" },
-            ],
-          },
-          {
-            title: "Installing pgEdge Anonymizer",
-            href: "/additional-tools/anonymizer/installing",
-            children: [
-              { title: "Installing Anonymizer", href: "/additional-tools/anonymizer/installing/guide" },
-              { title: "Creating a Configuration File", href: "/additional-tools/anonymizer/installing/config" },
-              { title: "Quickstart", href: "/additional-tools/anonymizer/installing/quickstart" },
-            ],
-          },
-          { title: "Using pgEdge Anonymizer", href: "/additional-tools/anonymizer/using" },
-          {
-            title: "Creating and Using Patterns",
-            href: "/additional-tools/anonymizer/patterns",
-            children: [
-              { title: "Creating a User-Defined Pattern", href: "/additional-tools/anonymizer/patterns/user-defined" },
-              { title: "Using Pre-defined Patterns", href: "/additional-tools/anonymizer/patterns/pre-defined" },
-              { title: "Example - Configuration File", href: "/additional-tools/anonymizer/patterns/example" },
-            ],
-          },
-          { title: "Troubleshooting", href: "/additional-tools/anonymizer/troubleshooting" },
-          { title: "Release Notes", href: "/additional-tools/anonymizer/release-notes" },
-          { title: "Licence", href: "/additional-tools/anonymizer/licence" },
-        ],
-      },
-      {
         title: "pgEdge Docloader",
         href: "/additional-tools/docloader",
         children: [
@@ -685,7 +685,7 @@ export const sampleSearchResults = [
   { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster", section: "Postgres Extensions" },
   { title: "Helm Chart Installation", href: "/containers-kubernetes/helm-chart/installation", section: "Containers / Kubernetes" },
   { title: "MCP Server Quickstart", href: "/ai-toolkit/mcp-server/installing/quickstart", section: "AI Toolkit" },
-  { title: "ACE Configuration", href: "/additional-tools/ace/configuration", section: "Additional Tools" },
+  { title: "ACE Configuration", href: "/vm-bare-metal/ace/configuration", section: "VM / Bare Metal" },
   { title: "pgEdge Cloud Getting Started", href: "/pgedge-cloud/getting-started", section: "pgEdge Cloud" },
   { title: "Control Plane API Reference", href: "/vm-bare-metal/control-plane/api/reference", section: "VM / Bare Metal" },
 ];

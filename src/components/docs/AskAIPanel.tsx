@@ -39,36 +39,41 @@ const generateChatTitle = (messages: Message[]): string => {
 export function AskAIPanel() {
   const { aiPanelOpen, setAiPanelOpen } = useNavigation();
   const [input, setInput] = useState("");
+  const DEMO_CHATS: Chat[] = [
+    {
+      id: "demo-1",
+      title: "How to set up distributed PostgreSQL?",
+      messages: [DEFAULT_MESSAGE, { role: "user", content: "How to set up distributed PostgreSQL?" }, { role: "assistant", content: "To set up distributed PostgreSQL with pgEdge, you'll need to..." }],
+      createdAt: new Date(Date.now() - 86400000),
+    },
+    {
+      id: "demo-2",
+      title: "Configuring replication between nodes",
+      messages: [DEFAULT_MESSAGE, { role: "user", content: "Configuring replication between nodes" }, { role: "assistant", content: "Replication in pgEdge can be configured through..." }],
+      createdAt: new Date(Date.now() - 172800000),
+    },
+    {
+      id: "demo-3",
+      title: "Best practices for multi-region deploy...",
+      messages: [DEFAULT_MESSAGE, { role: "user", content: "Best practices for multi-region deployment" }, { role: "assistant", content: "For multi-region deployments, we recommend..." }],
+      createdAt: new Date(Date.now() - 259200000),
+    },
+  ];
+
   const [chats, setChats] = useState<Chat[]>(() => {
     const saved = localStorage.getItem("pgedge-ai-chats");
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // If empty array or no valid chats, return demo chats
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
       } catch {
         // Return demo chats on error
       }
     }
-    // Demo chats for prototype
-    return [
-      {
-        id: "demo-1",
-        title: "How to set up distributed PostgreSQL?",
-        messages: [DEFAULT_MESSAGE, { role: "user", content: "How to set up distributed PostgreSQL?" }, { role: "assistant", content: "To set up distributed PostgreSQL with pgEdge, you'll need to..." }],
-        createdAt: new Date(Date.now() - 86400000),
-      },
-      {
-        id: "demo-2",
-        title: "Configuring replication between nodes",
-        messages: [DEFAULT_MESSAGE, { role: "user", content: "Configuring replication between nodes" }, { role: "assistant", content: "Replication in pgEdge can be configured through..." }],
-        createdAt: new Date(Date.now() - 172800000),
-      },
-      {
-        id: "demo-3",
-        title: "Best practices for multi-region deploy...",
-        messages: [DEFAULT_MESSAGE, { role: "user", content: "Best practices for multi-region deployment" }, { role: "assistant", content: "For multi-region deployments, we recommend..." }],
-        createdAt: new Date(Date.now() - 259200000),
-      },
-    ];
+    return DEMO_CHATS;
   });
   const [currentChatId, setCurrentChatId] = useState<string | null>(() => {
     const saved = localStorage.getItem("pgedge-ai-current-chat");

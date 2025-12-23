@@ -1,6 +1,7 @@
 import { SearchBox } from "./SearchBox";
 import { ThemeToggle } from "./ThemeToggle";
 import { GitHubLink } from "./GitHubLink";
+import { DiscordLink } from "./DiscordLink";
 import { AskAIButton } from "./AskAIButton";
 import { useTheme } from "@/contexts/ThemeContext";
 import logoLight from "@/assets/logo-light.png";
@@ -45,6 +46,7 @@ export function Header() {
           </div>
           <AskAIButton />
           <ThemeToggle />
+          <DiscordLink />
           <GitHubLink />
         </div>
       </div>

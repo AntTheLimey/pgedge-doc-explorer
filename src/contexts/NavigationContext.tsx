@@ -27,10 +27,11 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
   const toggleExpanded = (href: string) => {
     setExpandedItems((prev) => {
       if (prev.includes(href)) {
-        return prev.filter((item) => item !== href);
+        // Collapse this item and all its descendants
+        return prev.filter((item) => item !== href && !item.startsWith(href + "/"));
       }
-      // Collapse siblings at the same level and expand the new one
-      return [...prev.filter((item) => !item.startsWith(href.split("/").slice(0, -1).join("/"))), href];
+      // Keep all ancestors and other unrelated items, just add the new one
+      return [...prev, href];
     });
   };
 

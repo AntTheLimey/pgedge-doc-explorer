@@ -45,10 +45,30 @@ export function AskAIPanel() {
       try {
         return JSON.parse(saved);
       } catch {
-        return [];
+        // Return demo chats on error
       }
     }
-    return [];
+    // Demo chats for prototype
+    return [
+      {
+        id: "demo-1",
+        title: "How to set up distributed PostgreSQL?",
+        messages: [DEFAULT_MESSAGE, { role: "user", content: "How to set up distributed PostgreSQL?" }, { role: "assistant", content: "To set up distributed PostgreSQL with pgEdge, you'll need to..." }],
+        createdAt: new Date(Date.now() - 86400000),
+      },
+      {
+        id: "demo-2",
+        title: "Configuring replication between nodes",
+        messages: [DEFAULT_MESSAGE, { role: "user", content: "Configuring replication between nodes" }, { role: "assistant", content: "Replication in pgEdge can be configured through..." }],
+        createdAt: new Date(Date.now() - 172800000),
+      },
+      {
+        id: "demo-3",
+        title: "Best practices for multi-region deploy...",
+        messages: [DEFAULT_MESSAGE, { role: "user", content: "Best practices for multi-region deployment" }, { role: "assistant", content: "For multi-region deployments, we recommend..." }],
+        createdAt: new Date(Date.now() - 259200000),
+      },
+    ];
   });
   const [currentChatId, setCurrentChatId] = useState<string | null>(() => {
     const saved = localStorage.getItem("pgedge-ai-current-chat");

@@ -480,7 +480,7 @@ export const topLevelSections: TopLevelSection[] = [
   },
   {
     id: "pgedge-extensions",
-    title: "pgEdge Extensions",
+    title: "Postgres Extensions",
     href: "/pgedge-extensions",
     items: [
       { title: "Overview", href: "/pgedge-extensions" },
@@ -681,8 +681,8 @@ export const topLevelSections: TopLevelSection[] = [
 
 export const sampleSearchResults = [
   { title: "Installing Postgres", href: "/vm-bare-metal/package-repository/enterprise-linux/installing-postgres", section: "VM / Bare Metal" },
-  { title: "Spock Multi-Master Replication", href: "/pgedge-extensions/spock", section: "pgEdge Extensions" },
-  { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster", section: "pgEdge Extensions" },
+  { title: "Spock Multi-Master Replication", href: "/pgedge-extensions/spock", section: "Postgres Extensions" },
+  { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster", section: "Postgres Extensions" },
   { title: "Helm Chart Installation", href: "/containers-kubernetes/helm-chart/installation", section: "Containers / Kubernetes" },
   { title: "MCP Server Quickstart", href: "/ai-toolkit/mcp-server/installing/quickstart", section: "AI Toolkit" },
   { title: "ACE Configuration", href: "/additional-tools/ace/configuration", section: "Additional Tools" },

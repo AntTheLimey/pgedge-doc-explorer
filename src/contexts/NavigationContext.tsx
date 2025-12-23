@@ -62,8 +62,27 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
 
 export function useNavigation() {
   const context = useContext(NavigationContext);
-  if (!context) {
-    throw new Error("useNavigation must be used within a NavigationProvider");
+  if (context) return context;
+
+  // Fail-soft fallback: prevents a blank screen if a component is rendered
+  // outside the provider (e.g., during isolated rendering / error states).
+  // Components will still work, but state won't be shared.
+  if (import.meta.env.DEV) {
+    // eslint-disable-next-line no-console
+    console.warn("useNavigation called outside NavigationProvider; using fallback values.");
   }
-  return context;
+
+  return {
+    activeSection: topLevelSections[0],
+    setActiveSection: () => undefined,
+    activePath: "/get-started",
+    setActivePath: () => undefined,
+    expandedItems: [],
+    toggleExpanded: () => undefined,
+    collapseAll: () => undefined,
+    aiPanelOpen: false,
+    setAiPanelOpen: () => undefined,
+    selectedVersion: "v0.6.0",
+    setSelectedVersion: () => undefined,
+  };
 }

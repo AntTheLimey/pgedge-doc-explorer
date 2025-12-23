@@ -6,6 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { DiscordIcon } from "./DiscordLink";
 
 export function HelpDropdown() {
   return (
@@ -25,6 +26,12 @@ export function HelpDropdown() {
         <DropdownMenuItem className="gap-2 cursor-pointer">
           <MessageSquare className="h-4 w-4" />
           Sales
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild className="gap-2 cursor-pointer">
+          <a href="https://discord.gg/pgedge" target="_blank" rel="noopener noreferrer">
+            <DiscordIcon className="h-4 w-4" />
+            Join the Community
+          </a>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

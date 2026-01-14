@@ -564,7 +564,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/ai-toolkit/vectorizer",
         items: [
           { title: "Home", href: "/ai-toolkit/vectorizer/home" },
-          { title: "Home", href: "/ai-toolkit/vectorizer/home" },
           { title: "Changelog", href: "/ai-toolkit/vectorizer/changelog" },
         ],
       },
@@ -623,7 +622,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "Spock (Multi-Master Replication)",
         href: "/pgedge-extensions/spock",
         items: [
-          { title: "Introduction", href: "/pgedge-extensions/spock/introduction" },
           { title: "Introduction", href: "/pgedge-extensions/spock/introduction" },
           { title: "Installing and Configuring Spock", href: "/pgedge-extensions/spock/installing" },
           { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster" },
@@ -696,7 +694,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/pgedge-extensions/lolor",
         items: [
           { title: "lolor Overview", href: "/pgedge-extensions/lolor/overview" },
-          { title: "lolor Overview", href: "/pgedge-extensions/lolor/overview" },
           { title: "Building and Installing lolor", href: "/pgedge-extensions/lolor/installing" },
           { title: "Using lolor", href: "/pgedge-extensions/lolor/using" },
           { title: "Using pg_upgrade with lolor", href: "/pgedge-extensions/lolor/pg-upgrade" },
@@ -709,7 +706,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/pgedge-extensions/snowflake",
         items: [
           { title: "Snowflake Overview", href: "/pgedge-extensions/snowflake/overview" },
-          { title: "Snowflake Overview", href: "/pgedge-extensions/snowflake/overview" },
           { title: "Creating a Snowflake Sequence", href: "/pgedge-extensions/snowflake/creating" },
           { title: "Converting an Existing Postgres Sequence", href: "/pgedge-extensions/snowflake/converting" },
           { title: "Using Snowflake Functions", href: "/pgedge-extensions/snowflake/functions" },
@@ -721,7 +717,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "pgEdge Vectorizer",
         href: "/pgedge-extensions/vectorizer",
         items: [
-          { title: "Home", href: "/pgedge-extensions/vectorizer/home" },
           { title: "Home", href: "/pgedge-extensions/vectorizer/home" },
           { title: "Changelog", href: "/pgedge-extensions/vectorizer/changelog" },
         ],

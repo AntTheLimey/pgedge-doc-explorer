@@ -30,7 +30,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/get-started",
         items: [
           { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
-          { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
           { title: "Architecture: Single Node → HA → Multi-Master", href: "/get-started/architecture" },
           { title: "Choosing Your Deployment Method", href: "/get-started/deployment-method" },
           { title: "Migration from Standard PostgreSQL", href: "/get-started/migration" },
@@ -55,7 +54,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/vm-bare-metal/control-plane",
         items: [
           { title: "Version Support", href: "/vm-bare-metal/control-plane/version-support" },
-          { title: "Control Plane Version Support", href: "/vm-bare-metal/control-plane/version-support" },
           {
             title: "Prerequisites - Preparing your System",
             href: "/vm-bare-metal/control-plane/prerequisites",
@@ -172,7 +170,6 @@ export const topLevelSections: TopLevelSection[] = [
         href: "/vm-bare-metal/ace",
         items: [
           { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
-          { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
           { title: "Best Practices for Using ACE", href: "/vm-bare-metal/ace/best-practices" },
           { title: "ACE Configuration", href: "/vm-bare-metal/ace/configuration" },
           { title: "Running ACE with Docker", href: "/vm-bare-metal/ace/docker" },
@@ -260,7 +257,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "Overview",
         href: "/pgedge-cloud",
         items: [
-          { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
           { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
           {
             title: "Prerequisites",

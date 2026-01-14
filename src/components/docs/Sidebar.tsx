@@ -61,7 +61,7 @@ export function Sidebar() {
   const { activeComponent, activeSection } = useNavigation();
   
   // Hide version selector for these sections/components
-  const sectionsWithoutVersion = ["Get Started", "pgEdge Cloud (DBaaS)"];
+  const sectionsWithoutVersion = ["Get Started", "pgEdge Cloud"];
   const componentsWithoutVersion = ["Container Images", "Package Repository"];
   
   const showVersionSelector = 

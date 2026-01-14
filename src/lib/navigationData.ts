@@ -249,12 +249,12 @@ export const topLevelSections: TopLevelSection[] = [
   },
   {
     id: "pgedge-cloud",
-    title: "pgEdge Cloud (DBaaS)",
+    title: "pgEdge Cloud",
     href: "/pgedge-cloud",
     components: [
       {
         id: "cloud-overview",
-        title: "Overview",
+        title: "pgEdge Cloud",
         href: "/pgedge-cloud",
         items: [
           { title: "Getting Started", href: "/pgedge-cloud/getting-started" },

@@ -43,7 +43,7 @@ export function TopLevelNav() {
 
             if (hasMultipleComponents) {
               return (
-                <DropdownMenu key={section.id}>
+                <DropdownMenu key={section.id} modal={false}>
                   <DropdownMenuTrigger asChild>
                     <button
                       className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors ${

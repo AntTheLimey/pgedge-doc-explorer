@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function TopLevelNav() {
-  const { activeSection, setActiveSection, activeComponent, setActiveComponent, setActivePath, collapseAll } = useNavigation();
+  const { activeSection, setActiveSection, activeComponent, setActivePath, collapseAll } = useNavigation();
 
   const handleSectionClick = (sectionId: string) => {
     const section = topLevelSections.find((s) => s.id === sectionId);
@@ -26,8 +26,7 @@ export function TopLevelNav() {
     if (section) {
       const component = section.components.find((c) => c.id === componentId);
       if (component) {
-        setActiveSection(section);
-        setActiveComponent(component);
+        setActiveSection(section, component);
         setActivePath(component.href);
         collapseAll();
       }

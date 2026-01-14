@@ -3,7 +3,7 @@ import { topLevelSections, TopLevelSection, Component } from "@/lib/navigationDa
 
 interface NavigationContextType {
   activeSection: TopLevelSection;
-  setActiveSection: (section: TopLevelSection) => void;
+  setActiveSection: (section: TopLevelSection, component?: Component) => void;
   activeComponent: Component;
   setActiveComponent: (component: Component) => void;
   activePath: string;
@@ -27,10 +27,12 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
   const [aiPanelOpen, setAiPanelOpen] = useState(false);
   const [selectedVersion, setSelectedVersion] = useState("v0.6.0");
 
-  const handleSetActiveSection = (section: TopLevelSection) => {
+  const handleSetActiveSection = (section: TopLevelSection, component?: Component) => {
     setActiveSection(section);
-    // Auto-select the first component when section changes
-    if (section.components.length > 0) {
+    // Use provided component or auto-select the first component when section changes
+    if (component) {
+      setActiveComponent(component);
+    } else if (section.components.length > 0) {
       setActiveComponent(section.components[0]);
     }
   };

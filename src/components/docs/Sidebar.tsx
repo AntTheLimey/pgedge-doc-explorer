@@ -60,14 +60,13 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 export function Sidebar() {
   const { activeComponent, activeSection } = useNavigation();
   
-  // Hide version selector for these sections
-  const sectionsWithoutVersion = [
-    "Get Started",
-    "Container Images", 
-    "pgEdge Cloud (DBAAS)",
-    "Package Repository"
-  ];
-  const showVersionSelector = !sectionsWithoutVersion.includes(activeSection.title);
+  // Hide version selector for these sections/components
+  const sectionsWithoutVersion = ["Get Started", "pgEdge Cloud (DBaaS)"];
+  const componentsWithoutVersion = ["Container Images", "Package Repository"];
+  
+  const showVersionSelector = 
+    !sectionsWithoutVersion.includes(activeSection.title) &&
+    !componentsWithoutVersion.includes(activeComponent.title);
 
   return (
     <aside className="w-64 lg:w-72 flex-shrink-0 border-r border-border bg-sidebar overflow-y-auto scrollbar-thin h-[calc(100vh-7rem)]">

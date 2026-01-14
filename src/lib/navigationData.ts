@@ -29,7 +29,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "Overview",
         href: "/get-started",
         items: [
-          { title: "Overview & Getting Started", href: "/get-started" },
+          { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
           { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
           { title: "Architecture: Single Node → HA → Multi-Master", href: "/get-started/architecture" },
           { title: "Choosing Your Deployment Method", href: "/get-started/deployment-method" },
@@ -47,16 +47,14 @@ export const topLevelSections: TopLevelSection[] = [
         id: "vm-overview",
         title: "Overview",
         href: "/vm-bare-metal",
-        items: [
-          { title: "Overview", href: "/vm-bare-metal" },
-        ],
+        items: [],
       },
       {
         id: "control-plane",
         title: "Control Plane",
         href: "/vm-bare-metal/control-plane",
         items: [
-          { title: "Control Plane", href: "/vm-bare-metal/control-plane" },
+          { title: "Version Support", href: "/vm-bare-metal/control-plane/version-support" },
           { title: "Control Plane Version Support", href: "/vm-bare-metal/control-plane/version-support" },
           {
             title: "Prerequisites - Preparing your System",
@@ -125,24 +123,19 @@ export const topLevelSections: TopLevelSection[] = [
         id: "ansible",
         title: "Ansible",
         href: "/vm-bare-metal/ansible",
-        items: [
-          { title: "Ansible", href: "/vm-bare-metal/ansible" },
-        ],
+        items: [],
       },
       {
         id: "distributed-database-cli",
         title: "Distributed Database CLI",
         href: "/vm-bare-metal/cli",
-        items: [
-          { title: "Distributed Database CLI", href: "/vm-bare-metal/cli" },
-        ],
+        items: [],
       },
       {
         id: "package-repository",
         title: "Package Repository",
         href: "/vm-bare-metal/package-repository",
         items: [
-          { title: "Package Repository (yum/apt)", href: "/vm-bare-metal/package-repository" },
           {
             title: "Enterprise Linux 9 & 10",
             href: "/vm-bare-metal/package-repository/enterprise-linux",
@@ -178,8 +171,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "ACE (Active Consistency Engine)",
         href: "/vm-bare-metal/ace",
         items: [
-          { title: "ACE Overview", href: "/vm-bare-metal/ace" },
-          { title: "ACE Overview", href: "/vm-bare-metal/ace/overview" },
+          { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
           { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
           { title: "Best Practices for Using ACE", href: "/vm-bare-metal/ace/best-practices" },
           { title: "ACE Configuration", href: "/vm-bare-metal/ace/configuration" },
@@ -220,16 +212,13 @@ export const topLevelSections: TopLevelSection[] = [
         id: "containers-overview",
         title: "Overview",
         href: "/containers-kubernetes",
-        items: [
-          { title: "Overview", href: "/containers-kubernetes" },
-        ],
+        items: [],
       },
       {
         id: "helm-chart",
         title: "Helm Chart",
         href: "/containers-kubernetes/helm-chart",
         items: [
-          { title: "Helm Chart", href: "/containers-kubernetes/helm-chart" },
           { title: "Introduction", href: "/containers-kubernetes/helm-chart/introduction" },
           { title: "Quickstart", href: "/containers-kubernetes/helm-chart/quickstart" },
           { title: "Installation", href: "/containers-kubernetes/helm-chart/installation" },
@@ -257,9 +246,7 @@ export const topLevelSections: TopLevelSection[] = [
         id: "container-images",
         title: "Container Images",
         href: "/containers-kubernetes/container-images",
-        items: [
-          { title: "Container Images", href: "/containers-kubernetes/container-images" },
-        ],
+        items: [],
       },
     ],
   },
@@ -273,7 +260,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "Overview",
         href: "/pgedge-cloud",
         items: [
-          { title: "Overview", href: "/pgedge-cloud" },
+          { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
           { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
           {
             title: "Prerequisites",
@@ -376,16 +363,13 @@ export const topLevelSections: TopLevelSection[] = [
         id: "ai-overview",
         title: "Overview",
         href: "/ai-toolkit",
-        items: [
-          { title: "Overview", href: "/ai-toolkit" },
-        ],
+        items: [],
       },
       {
         id: "mcp-server",
         title: "MCP Server & Natural Language Agent",
         href: "/ai-toolkit/mcp-server",
         items: [
-          { title: "MCP Server", href: "/ai-toolkit/mcp-server" },
           {
             title: "About the pgEdge Postgres MCP Server",
             href: "/ai-toolkit/mcp-server/about",
@@ -489,7 +473,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "RAG Server",
         href: "/ai-toolkit/rag-server",
         items: [
-          { title: "RAG Server", href: "/ai-toolkit/rag-server" },
           {
             title: "pgEdge RAG Server",
             href: "/ai-toolkit/rag-server/overview",
@@ -535,7 +518,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "pgEdge Docloader",
         href: "/ai-toolkit/docloader",
         items: [
-          { title: "Document Loader", href: "/ai-toolkit/docloader" },
           {
             title: "pgEdge Document Loader",
             href: "/ai-toolkit/docloader/overview",
@@ -585,7 +567,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "pgEdge Vectorizer",
         href: "/ai-toolkit/vectorizer",
         items: [
-          { title: "Vectorizer", href: "/ai-toolkit/vectorizer" },
+          { title: "Home", href: "/ai-toolkit/vectorizer/home" },
           { title: "Home", href: "/ai-toolkit/vectorizer/home" },
           { title: "Changelog", href: "/ai-toolkit/vectorizer/changelog" },
         ],
@@ -595,7 +577,6 @@ export const topLevelSections: TopLevelSection[] = [
         title: "pgEdge Anonymizer",
         href: "/ai-toolkit/anonymizer",
         items: [
-          { title: "Anonymizer", href: "/ai-toolkit/anonymizer" },
           {
             title: "pgEdge Anonymizer",
             href: "/ai-toolkit/anonymizer/overview",
@@ -639,16 +620,14 @@ export const topLevelSections: TopLevelSection[] = [
         id: "extensions-overview",
         title: "Overview",
         href: "/pgedge-extensions",
-        items: [
-          { title: "Overview", href: "/pgedge-extensions" },
-        ],
+        items: [],
       },
       {
         id: "spock",
         title: "Spock (Multi-Master Replication)",
         href: "/pgedge-extensions/spock",
         items: [
-          { title: "Spock", href: "/pgedge-extensions/spock" },
+          { title: "Introduction", href: "/pgedge-extensions/spock/introduction" },
           { title: "Introduction", href: "/pgedge-extensions/spock/introduction" },
           { title: "Installing and Configuring Spock", href: "/pgedge-extensions/spock/installing" },
           { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster" },
@@ -720,7 +699,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "LOLOR (Large Object Replication)",
         href: "/pgedge-extensions/lolor",
         items: [
-          { title: "LOLOR", href: "/pgedge-extensions/lolor" },
+          { title: "lolor Overview", href: "/pgedge-extensions/lolor/overview" },
           { title: "lolor Overview", href: "/pgedge-extensions/lolor/overview" },
           { title: "Building and Installing lolor", href: "/pgedge-extensions/lolor/installing" },
           { title: "Using lolor", href: "/pgedge-extensions/lolor/using" },
@@ -733,7 +712,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "Snowflake (Distributed Sequences)",
         href: "/pgedge-extensions/snowflake",
         items: [
-          { title: "Snowflake", href: "/pgedge-extensions/snowflake" },
+          { title: "Snowflake Overview", href: "/pgedge-extensions/snowflake/overview" },
           { title: "Snowflake Overview", href: "/pgedge-extensions/snowflake/overview" },
           { title: "Creating a Snowflake Sequence", href: "/pgedge-extensions/snowflake/creating" },
           { title: "Converting an Existing Postgres Sequence", href: "/pgedge-extensions/snowflake/converting" },
@@ -746,7 +725,7 @@ export const topLevelSections: TopLevelSection[] = [
         title: "pgEdge Vectorizer",
         href: "/pgedge-extensions/vectorizer",
         items: [
-          { title: "Vectorizer", href: "/pgedge-extensions/vectorizer" },
+          { title: "Home", href: "/pgedge-extensions/vectorizer/home" },
           { title: "Home", href: "/pgedge-extensions/vectorizer/home" },
           { title: "Changelog", href: "/pgedge-extensions/vectorizer/changelog" },
         ],

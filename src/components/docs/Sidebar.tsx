@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 import { NavItem } from "@/lib/navigationData";
 import { useNavigation } from "@/contexts/NavigationContext";
 import { cn } from "@/lib/utils";
+import { VersionSelector } from "./VersionSelector";
 
 interface SidebarItemProps {
   item: NavItem;
@@ -62,6 +63,7 @@ export function Sidebar() {
   return (
     <aside className="w-64 lg:w-72 flex-shrink-0 border-r border-border bg-sidebar overflow-y-auto scrollbar-thin h-[calc(100vh-7rem)]">
       <div className="p-4">
+        <VersionSelector />
         <h2 className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
           {activeComponent.title}
         </h2>

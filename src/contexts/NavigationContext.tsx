@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
-import { topLevelSections, TopLevelSection } from "@/lib/navigationData";
+import { topLevelSections, TopLevelSection, Component } from "@/lib/navigationData";
 
 interface NavigationContextType {
   activeSection: TopLevelSection;
   setActiveSection: (section: TopLevelSection) => void;
+  activeComponent: Component;
+  setActiveComponent: (component: Component) => void;
   activePath: string;
   setActivePath: (path: string) => void;
   expandedItems: string[];
@@ -19,10 +21,19 @@ const NavigationContext = createContext<NavigationContextType | undefined>(undef
 
 export function NavigationProvider({ children }: { children: React.ReactNode }) {
   const [activeSection, setActiveSection] = useState<TopLevelSection>(topLevelSections[0]);
+  const [activeComponent, setActiveComponent] = useState<Component>(topLevelSections[0].components[0]);
   const [activePath, setActivePath] = useState("/get-started");
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const [aiPanelOpen, setAiPanelOpen] = useState(false);
   const [selectedVersion, setSelectedVersion] = useState("v0.6.0");
+
+  const handleSetActiveSection = (section: TopLevelSection) => {
+    setActiveSection(section);
+    // Auto-select the first component when section changes
+    if (section.components.length > 0) {
+      setActiveComponent(section.components[0]);
+    }
+  };
 
   const toggleExpanded = (href: string) => {
     setExpandedItems((prev) => {
@@ -43,7 +54,9 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
     <NavigationContext.Provider
       value={{
         activeSection,
-        setActiveSection,
+        setActiveSection: handleSetActiveSection,
+        activeComponent,
+        setActiveComponent,
         activePath,
         setActivePath,
         expandedItems,
@@ -75,6 +88,8 @@ export function useNavigation() {
   return {
     activeSection: topLevelSections[0],
     setActiveSection: () => undefined,
+    activeComponent: topLevelSections[0].components[0],
+    setActiveComponent: () => undefined,
     activePath: "/get-started",
     setActivePath: () => undefined,
     expandedItems: [],

@@ -4,11 +4,18 @@ export interface NavItem {
   children?: NavItem[];
 }
 
-export interface TopLevelSection {
+export interface Component {
   id: string;
   title: string;
   href: string;
   items: NavItem[];
+}
+
+export interface TopLevelSection {
+  id: string;
+  title: string;
+  href: string;
+  components: Component[];
 }
 
 export const topLevelSections: TopLevelSection[] = [
@@ -16,24 +23,40 @@ export const topLevelSections: TopLevelSection[] = [
     id: "get-started",
     title: "Get Started",
     href: "/get-started",
-    items: [
-      { title: "Overview & Getting Started", href: "/get-started" },
-      { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
-      { title: "Architecture: Single Node → HA → Multi-Master", href: "/get-started/architecture" },
-      { title: "Choosing Your Deployment Method", href: "/get-started/deployment-method" },
-      { title: "Migration from Standard PostgreSQL", href: "/get-started/migration" },
+    components: [
+      {
+        id: "get-started-overview",
+        title: "Overview",
+        href: "/get-started",
+        items: [
+          { title: "Overview & Getting Started", href: "/get-started" },
+          { title: "What is pgEdge Enterprise Postgres?", href: "/get-started/what-is-pgedge" },
+          { title: "Architecture: Single Node → HA → Multi-Master", href: "/get-started/architecture" },
+          { title: "Choosing Your Deployment Method", href: "/get-started/deployment-method" },
+          { title: "Migration from Standard PostgreSQL", href: "/get-started/migration" },
+        ],
+      },
     ],
   },
   {
     id: "vm-bare-metal",
     title: "VM / Bare Metal",
     href: "/vm-bare-metal",
-    items: [
-      { title: "Overview", href: "/vm-bare-metal" },
+    components: [
       {
+        id: "vm-overview",
+        title: "Overview",
+        href: "/vm-bare-metal",
+        items: [
+          { title: "Overview", href: "/vm-bare-metal" },
+        ],
+      },
+      {
+        id: "control-plane",
         title: "Control Plane",
         href: "/vm-bare-metal/control-plane",
-        children: [
+        items: [
+          { title: "Control Plane", href: "/vm-bare-metal/control-plane" },
           { title: "Control Plane Version Support", href: "/vm-bare-metal/control-plane/version-support" },
           {
             title: "Prerequisites - Preparing your System",
@@ -98,11 +121,28 @@ export const topLevelSections: TopLevelSection[] = [
           { title: "Control Plane Release Notes", href: "/vm-bare-metal/control-plane/release-notes" },
         ],
       },
-      { title: "Ansible", href: "/vm-bare-metal/ansible" },
       {
-        title: "Package Repository (yum/apt)",
+        id: "ansible",
+        title: "Ansible",
+        href: "/vm-bare-metal/ansible",
+        items: [
+          { title: "Ansible", href: "/vm-bare-metal/ansible" },
+        ],
+      },
+      {
+        id: "distributed-database-cli",
+        title: "Distributed Database CLI",
+        href: "/vm-bare-metal/cli",
+        items: [
+          { title: "Distributed Database CLI", href: "/vm-bare-metal/cli" },
+        ],
+      },
+      {
+        id: "package-repository",
+        title: "Package Repository",
         href: "/vm-bare-metal/package-repository",
-        children: [
+        items: [
+          { title: "Package Repository (yum/apt)", href: "/vm-bare-metal/package-repository" },
           {
             title: "Enterprise Linux 9 & 10",
             href: "/vm-bare-metal/package-repository/enterprise-linux",
@@ -134,9 +174,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "ace",
         title: "ACE (Active Consistency Engine)",
         href: "/vm-bare-metal/ace",
-        children: [
+        items: [
+          { title: "ACE Overview", href: "/vm-bare-metal/ace" },
           { title: "ACE Overview", href: "/vm-bare-metal/ace/overview" },
           { title: "Installing ACE", href: "/vm-bare-metal/ace/installing" },
           { title: "Best Practices for Using ACE", href: "/vm-bare-metal/ace/best-practices" },
@@ -173,12 +215,21 @@ export const topLevelSections: TopLevelSection[] = [
     id: "containers-kubernetes",
     title: "Containers / Kubernetes",
     href: "/containers-kubernetes",
-    items: [
-      { title: "Overview", href: "/containers-kubernetes" },
+    components: [
       {
+        id: "containers-overview",
+        title: "Overview",
+        href: "/containers-kubernetes",
+        items: [
+          { title: "Overview", href: "/containers-kubernetes" },
+        ],
+      },
+      {
+        id: "helm-chart",
         title: "Helm Chart",
         href: "/containers-kubernetes/helm-chart",
-        children: [
+        items: [
+          { title: "Helm Chart", href: "/containers-kubernetes/helm-chart" },
           { title: "Introduction", href: "/containers-kubernetes/helm-chart/introduction" },
           { title: "Quickstart", href: "/containers-kubernetes/helm-chart/quickstart" },
           { title: "Installation", href: "/containers-kubernetes/helm-chart/installation" },
@@ -202,116 +253,139 @@ export const topLevelSections: TopLevelSection[] = [
           { title: "Limitations", href: "/containers-kubernetes/helm-chart/limitations" },
         ],
       },
-      { title: "Container Images", href: "/containers-kubernetes/container-images" },
+      {
+        id: "container-images",
+        title: "Container Images",
+        href: "/containers-kubernetes/container-images",
+        items: [
+          { title: "Container Images", href: "/containers-kubernetes/container-images" },
+        ],
+      },
     ],
   },
   {
     id: "pgedge-cloud",
     title: "pgEdge Cloud (DBaaS)",
     href: "/pgedge-cloud",
-    items: [
-      { title: "Overview", href: "/pgedge-cloud" },
-      { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
+    components: [
       {
-        title: "Prerequisites",
-        href: "/pgedge-cloud/prerequisites",
-        children: [
-          { title: "Adding an SSH Key", href: "/pgedge-cloud/prerequisites/ssh-key" },
-          { title: "Linking Cloud Provider Accounts", href: "/pgedge-cloud/prerequisites/cloud-providers" },
+        id: "cloud-overview",
+        title: "Overview",
+        href: "/pgedge-cloud",
+        items: [
+          { title: "Overview", href: "/pgedge-cloud" },
+          { title: "Getting Started", href: "/pgedge-cloud/getting-started" },
+          {
+            title: "Prerequisites",
+            href: "/pgedge-cloud/prerequisites",
+            children: [
+              { title: "Adding an SSH Key", href: "/pgedge-cloud/prerequisites/ssh-key" },
+              { title: "Linking Cloud Provider Accounts", href: "/pgedge-cloud/prerequisites/cloud-providers" },
+            ],
+          },
+          {
+            title: "Cluster Management",
+            href: "/pgedge-cloud/cluster-management",
+            children: [
+              { title: "Reviewing your Cloud Clusters", href: "/pgedge-cloud/cluster-management/reviewing" },
+              { title: "Creating a Cluster", href: "/pgedge-cloud/cluster-management/creating" },
+              { title: "Managing a Cluster", href: "/pgedge-cloud/cluster-management/managing" },
+              { title: "Defining a Cluster's Backup Store", href: "/pgedge-cloud/cluster-management/backup-store" },
+              { title: "Managing Firewall Rules", href: "/pgedge-cloud/cluster-management/firewall-rules" },
+              { title: "Using Resource Tags", href: "/pgedge-cloud/cluster-management/resource-tags" },
+              { title: "Managing VPC Associations", href: "/pgedge-cloud/cluster-management/vpc-associations" },
+            ],
+          },
+          {
+            title: "Database Management",
+            href: "/pgedge-cloud/database-management",
+            children: [
+              { title: "Reviewing your Databases", href: "/pgedge-cloud/database-management/reviewing" },
+              { title: "Creating a Database", href: "/pgedge-cloud/database-management/creating" },
+              { title: "Managing a Database", href: "/pgedge-cloud/database-management/managing" },
+            ],
+          },
+          {
+            title: "Modifying a Database or Cluster",
+            href: "/pgedge-cloud/modifying",
+            children: [
+              { title: "Using the Actions Menu", href: "/pgedge-cloud/modifying/actions-menu" },
+              { title: "Adding a Database or Cluster Node", href: "/pgedge-cloud/modifying/adding-node" },
+              { title: "Dropping a Database, Node, or Cluster", href: "/pgedge-cloud/modifying/dropping" },
+              { title: "Modifying a Database, Node, or Cluster", href: "/pgedge-cloud/modifying/modifying" },
+            ],
+          },
+          {
+            title: "Database Administration",
+            href: "/pgedge-cloud/administration",
+            children: [
+              { title: "Creating and Managing Tables", href: "/pgedge-cloud/administration/tables" },
+              { title: "Using Integrations", href: "/pgedge-cloud/administration/integrations" },
+              { title: "Reviewing Database Metrics", href: "/pgedge-cloud/administration/metrics" },
+              { title: "Viewing Log Files", href: "/pgedge-cloud/administration/logs" },
+              { title: "Reviewing Backup Details", href: "/pgedge-cloud/administration/backup-details" },
+              { title: "Using Postgres Extensions", href: "/pgedge-cloud/administration/extensions" },
+            ],
+          },
+          {
+            title: "Connecting to a Database",
+            href: "/pgedge-cloud/connecting",
+            children: [
+              { title: "Connecting to your Database or Cluster", href: "/pgedge-cloud/connecting/overview" },
+              { title: "Connecting with SSH", href: "/pgedge-cloud/connecting/ssh" },
+              { title: "Connecting with psql", href: "/pgedge-cloud/connecting/psql" },
+              { title: "Connecting with pgAdmin", href: "/pgedge-cloud/connecting/pgadmin" },
+              { title: "Connecting a Custom Client", href: "/pgedge-cloud/connecting/custom-client" },
+              { title: "Connecting over HTTPS", href: "/pgedge-cloud/connecting/https" },
+              { title: "Best Practices for Managing Connections", href: "/pgedge-cloud/connecting/best-practices" },
+            ],
+          },
+          {
+            title: "Managing Database Backups",
+            href: "/pgedge-cloud/backups",
+            children: [
+              { title: "Reviewing Backup Details", href: "/pgedge-cloud/backups/reviewing" },
+              { title: "Backing up your Database", href: "/pgedge-cloud/backups/backing-up" },
+              { title: "Restoring from Backup", href: "/pgedge-cloud/backups/restoring" },
+            ],
+          },
+          { title: "Reviewing Console Tasks", href: "/pgedge-cloud/console-tasks" },
+          {
+            title: "Migrating to pgEdge Distributed Postgres",
+            href: "/pgedge-cloud/migrating",
+            children: [
+              { title: "Overview - Using a Backup to Migrate", href: "/pgedge-cloud/migrating/overview" },
+              { title: "Taking a Backup", href: "/pgedge-cloud/migrating/taking-backup" },
+              { title: "Restoring from Backup", href: "/pgedge-cloud/migrating/restoring" },
+            ],
+          },
+          { title: "Settings", href: "/pgedge-cloud/settings" },
+          { title: "Team Resources", href: "/pgedge-cloud/team-resources" },
+          { title: "Troubleshooting", href: "/pgedge-cloud/troubleshooting" },
+          { title: "Release Notes", href: "/pgedge-cloud/release-notes" },
         ],
       },
-      {
-        title: "Cluster Management",
-        href: "/pgedge-cloud/cluster-management",
-        children: [
-          { title: "Reviewing your Cloud Clusters", href: "/pgedge-cloud/cluster-management/reviewing" },
-          { title: "Creating a Cluster", href: "/pgedge-cloud/cluster-management/creating" },
-          { title: "Managing a Cluster", href: "/pgedge-cloud/cluster-management/managing" },
-          { title: "Defining a Cluster's Backup Store", href: "/pgedge-cloud/cluster-management/backup-store" },
-          { title: "Managing Firewall Rules", href: "/pgedge-cloud/cluster-management/firewall-rules" },
-          { title: "Using Resource Tags", href: "/pgedge-cloud/cluster-management/resource-tags" },
-          { title: "Managing VPC Associations", href: "/pgedge-cloud/cluster-management/vpc-associations" },
-        ],
-      },
-      {
-        title: "Database Management",
-        href: "/pgedge-cloud/database-management",
-        children: [
-          { title: "Reviewing your Databases", href: "/pgedge-cloud/database-management/reviewing" },
-          { title: "Creating a Database", href: "/pgedge-cloud/database-management/creating" },
-          { title: "Managing a Database", href: "/pgedge-cloud/database-management/managing" },
-        ],
-      },
-      {
-        title: "Modifying a Database or Cluster",
-        href: "/pgedge-cloud/modifying",
-        children: [
-          { title: "Using the Actions Menu", href: "/pgedge-cloud/modifying/actions-menu" },
-          { title: "Adding a Database or Cluster Node", href: "/pgedge-cloud/modifying/adding-node" },
-          { title: "Dropping a Database, Node, or Cluster", href: "/pgedge-cloud/modifying/dropping" },
-          { title: "Modifying a Database, Node, or Cluster", href: "/pgedge-cloud/modifying/modifying" },
-        ],
-      },
-      {
-        title: "Database Administration",
-        href: "/pgedge-cloud/administration",
-        children: [
-          { title: "Creating and Managing Tables", href: "/pgedge-cloud/administration/tables" },
-          { title: "Using Integrations", href: "/pgedge-cloud/administration/integrations" },
-          { title: "Reviewing Database Metrics", href: "/pgedge-cloud/administration/metrics" },
-          { title: "Viewing Log Files", href: "/pgedge-cloud/administration/logs" },
-          { title: "Reviewing Backup Details", href: "/pgedge-cloud/administration/backup-details" },
-          { title: "Using Postgres Extensions", href: "/pgedge-cloud/administration/extensions" },
-        ],
-      },
-      {
-        title: "Connecting to a Database",
-        href: "/pgedge-cloud/connecting",
-        children: [
-          { title: "Connecting to your Database or Cluster", href: "/pgedge-cloud/connecting/overview" },
-          { title: "Connecting with SSH", href: "/pgedge-cloud/connecting/ssh" },
-          { title: "Connecting with psql", href: "/pgedge-cloud/connecting/psql" },
-          { title: "Connecting with pgAdmin", href: "/pgedge-cloud/connecting/pgadmin" },
-          { title: "Connecting a Custom Client", href: "/pgedge-cloud/connecting/custom-client" },
-          { title: "Connecting over HTTPS", href: "/pgedge-cloud/connecting/https" },
-          { title: "Best Practices for Managing Connections", href: "/pgedge-cloud/connecting/best-practices" },
-        ],
-      },
-      {
-        title: "Managing Database Backups",
-        href: "/pgedge-cloud/backups",
-        children: [
-          { title: "Reviewing Backup Details", href: "/pgedge-cloud/backups/reviewing" },
-          { title: "Backing up your Database", href: "/pgedge-cloud/backups/backing-up" },
-          { title: "Restoring from Backup", href: "/pgedge-cloud/backups/restoring" },
-        ],
-      },
-      { title: "Reviewing Console Tasks", href: "/pgedge-cloud/console-tasks" },
-      {
-        title: "Migrating to pgEdge Distributed Postgres",
-        href: "/pgedge-cloud/migrating",
-        children: [
-          { title: "Overview - Using a Backup to Migrate", href: "/pgedge-cloud/migrating/overview" },
-          { title: "Taking a Backup", href: "/pgedge-cloud/migrating/taking-backup" },
-          { title: "Restoring from Backup", href: "/pgedge-cloud/migrating/restoring" },
-        ],
-      },
-      { title: "Settings", href: "/pgedge-cloud/settings" },
-      { title: "Team Resources", href: "/pgedge-cloud/team-resources" },
-      { title: "Troubleshooting", href: "/pgedge-cloud/troubleshooting" },
-      { title: "Release Notes", href: "/pgedge-cloud/release-notes" },
     ],
   },
   {
     id: "ai-toolkit",
     title: "AI Toolkit",
     href: "/ai-toolkit",
-    items: [
-      { title: "Overview", href: "/ai-toolkit" },
+    components: [
       {
+        id: "ai-overview",
+        title: "Overview",
+        href: "/ai-toolkit",
+        items: [
+          { title: "Overview", href: "/ai-toolkit" },
+        ],
+      },
+      {
+        id: "mcp-server",
         title: "MCP Server & Natural Language Agent",
         href: "/ai-toolkit/mcp-server",
-        children: [
+        items: [
+          { title: "MCP Server", href: "/ai-toolkit/mcp-server" },
           {
             title: "About the pgEdge Postgres MCP Server",
             href: "/ai-toolkit/mcp-server/about",
@@ -411,9 +485,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "rag-server",
         title: "RAG Server",
         href: "/ai-toolkit/rag-server",
-        children: [
+        items: [
+          { title: "RAG Server", href: "/ai-toolkit/rag-server" },
           {
             title: "pgEdge RAG Server",
             href: "/ai-toolkit/rag-server/overview",
@@ -455,9 +531,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "docloader",
         title: "pgEdge Docloader",
         href: "/ai-toolkit/docloader",
-        children: [
+        items: [
+          { title: "Document Loader", href: "/ai-toolkit/docloader" },
           {
             title: "pgEdge Document Loader",
             href: "/ai-toolkit/docloader/overview",
@@ -503,17 +581,21 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "vectorizer",
         title: "pgEdge Vectorizer",
         href: "/ai-toolkit/vectorizer",
-        children: [
+        items: [
+          { title: "Vectorizer", href: "/ai-toolkit/vectorizer" },
           { title: "Home", href: "/ai-toolkit/vectorizer/home" },
           { title: "Changelog", href: "/ai-toolkit/vectorizer/changelog" },
         ],
       },
       {
+        id: "anonymizer",
         title: "pgEdge Anonymizer",
         href: "/ai-toolkit/anonymizer",
-        children: [
+        items: [
+          { title: "Anonymizer", href: "/ai-toolkit/anonymizer" },
           {
             title: "pgEdge Anonymizer",
             href: "/ai-toolkit/anonymizer/overview",
@@ -552,12 +634,21 @@ export const topLevelSections: TopLevelSection[] = [
     id: "pgedge-extensions",
     title: "Postgres Extensions",
     href: "/pgedge-extensions",
-    items: [
-      { title: "Overview", href: "/pgedge-extensions" },
+    components: [
       {
+        id: "extensions-overview",
+        title: "Overview",
+        href: "/pgedge-extensions",
+        items: [
+          { title: "Overview", href: "/pgedge-extensions" },
+        ],
+      },
+      {
+        id: "spock",
         title: "Spock (Multi-Master Replication)",
         href: "/pgedge-extensions/spock",
-        children: [
+        items: [
+          { title: "Spock", href: "/pgedge-extensions/spock" },
           { title: "Introduction", href: "/pgedge-extensions/spock/introduction" },
           { title: "Installing and Configuring Spock", href: "/pgedge-extensions/spock/installing" },
           { title: "Creating a Two-Node Cluster", href: "/pgedge-extensions/spock/two-node-cluster" },
@@ -625,9 +716,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "lolor",
         title: "LOLOR (Large Object Replication)",
         href: "/pgedge-extensions/lolor",
-        children: [
+        items: [
+          { title: "LOLOR", href: "/pgedge-extensions/lolor" },
           { title: "lolor Overview", href: "/pgedge-extensions/lolor/overview" },
           { title: "Building and Installing lolor", href: "/pgedge-extensions/lolor/installing" },
           { title: "Using lolor", href: "/pgedge-extensions/lolor/using" },
@@ -636,9 +729,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "snowflake",
         title: "Snowflake (Distributed Sequences)",
         href: "/pgedge-extensions/snowflake",
-        children: [
+        items: [
+          { title: "Snowflake", href: "/pgedge-extensions/snowflake" },
           { title: "Snowflake Overview", href: "/pgedge-extensions/snowflake/overview" },
           { title: "Creating a Snowflake Sequence", href: "/pgedge-extensions/snowflake/creating" },
           { title: "Converting an Existing Postgres Sequence", href: "/pgedge-extensions/snowflake/converting" },
@@ -647,9 +742,11 @@ export const topLevelSections: TopLevelSection[] = [
         ],
       },
       {
+        id: "vectorizer-ext",
         title: "pgEdge Vectorizer",
         href: "/pgedge-extensions/vectorizer",
-        children: [
+        items: [
+          { title: "Vectorizer", href: "/pgedge-extensions/vectorizer" },
           { title: "Home", href: "/pgedge-extensions/vectorizer/home" },
           { title: "Changelog", href: "/pgedge-extensions/vectorizer/changelog" },
         ],
@@ -666,5 +763,4 @@ export const sampleSearchResults = [
   { title: "MCP Server Quickstart", href: "/ai-toolkit/mcp-server/installing/quickstart", section: "AI Toolkit" },
   { title: "ACE Configuration", href: "/vm-bare-metal/ace/configuration", section: "VM / Bare Metal" },
   { title: "pgEdge Cloud Getting Started", href: "/pgedge-cloud/getting-started", section: "pgEdge Cloud" },
-  { title: "Control Plane API Reference", href: "/vm-bare-metal/control-plane/api/reference", section: "VM / Bare Metal" },
 ];

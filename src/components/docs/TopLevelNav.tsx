@@ -57,19 +57,21 @@ export function TopLevelNav() {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start" className="w-64">
-                    {section.components.map((component) => (
-                      <DropdownMenuItem
-                        key={component.id}
-                        onClick={() => handleComponentSelect(section.id, component.id)}
-                        className={`cursor-pointer ${
-                          activeSection.id === section.id && activeComponent.id === component.id
-                            ? "bg-accent"
-                            : ""
-                        }`}
-                      >
-                        {component.title}
-                      </DropdownMenuItem>
-                    ))}
+                    {section.components
+                      .filter((component) => component.title !== "Overview")
+                      .map((component) => (
+                        <DropdownMenuItem
+                          key={component.id}
+                          onClick={() => handleComponentSelect(section.id, component.id)}
+                          className={`cursor-pointer ${
+                            activeSection.id === section.id && activeComponent.id === component.id
+                              ? "bg-accent"
+                              : ""
+                          }`}
+                        >
+                          {component.title}
+                        </DropdownMenuItem>
+                      ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
               );

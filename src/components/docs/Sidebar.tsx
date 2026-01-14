@@ -57,16 +57,16 @@ function SidebarItem({ item, level }: SidebarItemProps) {
 }
 
 export function Sidebar() {
-  const { activeSection } = useNavigation();
+  const { activeComponent } = useNavigation();
 
   return (
     <aside className="w-64 lg:w-72 flex-shrink-0 border-r border-border bg-sidebar overflow-y-auto scrollbar-thin h-[calc(100vh-7rem)]">
       <div className="p-4">
         <h2 className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-          {activeSection.title}
+          {activeComponent.title}
         </h2>
         <nav className="mt-2 space-y-1">
-          {activeSection.items.map((item) => (
+          {activeComponent.items.map((item) => (
             <SidebarItem key={item.href} item={item} level={0} />
           ))}
         </nav>

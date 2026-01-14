@@ -1,7 +1,6 @@
 import { Info, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
 import { TableOfContents } from "./TableOfContents";
-import { VersionSelector } from "./VersionSelector";
 import { useNavigation } from "@/contexts/NavigationContext";
 
 export function ContentArea() {
@@ -26,8 +25,6 @@ export function ContentArea() {
     <div className="flex-1 flex gap-8 p-6 lg:p-10 overflow-y-auto h-[calc(100vh-7rem)]">
       <article className="flex-1 max-w-3xl">
         <Breadcrumb />
-        
-        {!isOverviewPage && <VersionSelector />}
         
         <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
           {getPageTitle()}
